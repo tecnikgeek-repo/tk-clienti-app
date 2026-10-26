@@ -24,6 +24,7 @@ class MainActivity : FlutterActivity() {
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
+        TkAggiornamento.registra(flutterEngine, this)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "it.pietrodefilippis.tkclienti/file")
             .setMethodCallHandler { call, result -> gestisci(call, result) }
     }
