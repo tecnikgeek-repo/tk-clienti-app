@@ -398,7 +398,7 @@ class _SchermataPreventivoState extends State<SchermataPreventivo> {
               const SizedBox(height: 10),
               Row(children: [
                 Expanded(
-                    child: TastoSecondario('WhatsApp', Icons.chat_rounded,
+                    child: TastoSecondario('Chat', Icons.chat_rounded,
                         _generando ? null : () => _condividi(whatsapp: true),
                         colore: const Color(0xFF128C4A))),
                 const SizedBox(width: 8),

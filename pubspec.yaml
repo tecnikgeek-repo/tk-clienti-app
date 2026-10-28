@@ -3,7 +3,7 @@ description: "tk-clienti per Android e iPhone: clienti, listino e preventivi, so
 publish_to: 'none'
 
 # 3.0.0 = riscritta in Flutter (la versione Kotlin era la 2.9.2, build 35)
-version: 3.2.6+46
+version: 3.2.7+47
 
 environment:
   sdk: ^3.13.0

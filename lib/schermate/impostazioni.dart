@@ -187,7 +187,7 @@ class _SchermataImpostazioniState extends State<SchermataImpostazioni> {
                     Dominio.preventivi,
                     titolo: 'Preventivi',
                     descrizione:
-                        'File con i tuoi preventivi, le righe e i movimenti di magazzino. Tienilo nel TUO Drive o Dropbox personale.',
+                        'File con i tuoi preventivi, le righe e i movimenti di magazzino. Tienilo nel TUO spazio cloud personale.',
                     icona: Icons.receipt_long_rounded,
                     colore: verde,
                     contatore: ('Preventivi nel telefono', '${archivio.preventivi.length}'),
@@ -269,14 +269,14 @@ class _SchermataImpostazioniState extends State<SchermataImpostazioni> {
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         _intestazioneCard(
             'Listino prodotti',
-            'File Excel o CSV su Drive, Dropbox o nel telefono. Lo modifichi sul PC, l\'app lo rilegge da sola.',
+            'Foglio di calcolo (.xlsx) o CSV nel tuo spazio cloud o nel telefono. Lo modifichi sul PC, l\'app lo rilegge da sola.',
             Icons.inventory_2_rounded,
             ambra,
             occupato),
         if (!fileCollegabili) ...[
           InfoRiga('Articoli nel telefono', '${archivio.nArticoli}'),
           const SizedBox(height: 10),
-          BottoneTk(testo: 'Importa Excel o CSV', icona: Icons.file_download_rounded, onTap: () => _importaIos(Dominio.listino)),
+          BottoneTk(testo: 'Importa foglio di calcolo o CSV', icona: Icons.file_download_rounded, onTap: () => _importaIos(Dominio.listino)),
         ] else if (cfg.collegato) ...[
           InfoRiga('File', cfg.nome),
           InfoRiga('Ultimo aggiornamento', cfg.ultimo > 0 ? dataOra(cfg.ultimo) : '—'),

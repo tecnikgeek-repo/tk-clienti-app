@@ -58,7 +58,7 @@ void main() {
 
     Future<List<(String, String)>> righe() async =>
         [('Clienti', '48'), ('Articoli a listino', '312'), ('Preventivi', '127'), ('File collegati', '2 di 3')];
-    const nota = 'Restano su questo telefono e nei file che colleghi tu (Drive, Dropbox o telefono).';
+    const nota = 'Restano su questo telefono e nei file che colleghi tu (nel tuo spazio cloud o nel telefono).';
     await _mostra(t, SchermataInformazioni(righe: righe, notaDati: nota));
     await expectLater(find.byType(MaterialApp), matchesGoldenFile('goldens/informazioni.png'));
 

@@ -156,7 +156,7 @@ class Sincronia extends ChangeNotifier {
     final articoli = await archivio.tuttiArticoli();
     if (articoli.isEmpty) return const Esito(false, 'Nessun articolo da scrivere');
     if (!cfg.nome.toLowerCase().endsWith('.xlsx')) {
-      return const Esito(false, 'Si può riscrivere solo un file Excel (.xlsx): il CSV si aggiorna dal PC');
+      return const Esito(false, 'Si può riscrivere solo un foglio di calcolo .xlsx: il CSV si aggiorna dal PC');
     }
     final hash = hashArticoli(articoli);
     if (hash == cfg.hash) {
@@ -168,7 +168,7 @@ class Sincronia extends ChangeNotifier {
       ..dimensione = info?.dimensione ?? 0
       ..hash = hash;
     await impostazioni.salvaFile(Dominio.listino, cfg);
-    return Esito(true, 'File Excel aggiornato (${articoli.length} articoli)', {'articoli': articoli.length});
+    return Esito(true, 'Foglio di calcolo aggiornato (${articoli.length} articoli)', {'articoli': articoli.length});
   }
 
   // ───────────────────────── lettura ─────────────────────────
