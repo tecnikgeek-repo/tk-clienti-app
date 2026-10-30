@@ -104,7 +104,7 @@ class _SchermataHomeState extends State<SchermataHome> {
                                 ('File collegati',
                                     '${Dominio.values.where((d) => impostazioni.file(d).collegato).length} di ${Dominio.values.length}'),
                               ],
-                          notaDati: 'Restano su questo telefono e nei file che colleghi tu (Drive, Dropbox o telefono).')),
+                          notaDati: 'Restano su questo telefono e nei file che colleghi tu (nel tuo spazio cloud o nel telefono).')),
                 ],
                 sotto: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   const Text('PREVENTIVI DEL MESE',
