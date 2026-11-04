@@ -10,6 +10,7 @@ import 'package:xml/xml.dart';
 import 'formati.dart';
 import 'json_android.dart';
 import 'modelli.dart';
+import '../kit_tk.dart';
 
 class LetturaListino {
   LetturaListino(this.articoli, this.codiciVisti, this.totali, this.errori);
@@ -133,7 +134,7 @@ LetturaListino leggiXlsx(Uint8List dati, Map<String, Articolo> esistenti) {
       righe.add(riga);
     }
   } catch (e) {
-    return LetturaListino(const [], const {}, 0, ['Errore lettura XLSX: $e']);
+    return LetturaListino(const [], const {}, 0, [fraseErrore('Il foglio di calcolo non si legge.', e)]);
   }
   if (righe.isEmpty) return LetturaListino(const [], const {}, 0, ['Foglio vuoto']);
 

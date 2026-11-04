@@ -16,6 +16,7 @@ import 'file_collegati.dart';
 import 'formati.dart';
 import 'impostazioni.dart';
 import 'listino.dart';
+import '../kit_tk.dart';
 
 class Esito {
   const Esito(this.ok, this.messaggio, [this.conteggi = const {}]);
@@ -271,7 +272,7 @@ class Sincronia extends ChangeNotifier {
           '${saltati > 0 ? ' · $saltati movimenti di articoli che qui non ci sono' : ''}',
           {'preventivi': f.preventivi.length, 'righe': f.righe.length, 'tenuti': 0});
     } catch (e) {
-      return Esito(false, '$e');
+      return Esito(false, fraseErrore('Non sono riuscito a riprendere i dati dal file.', e));
     }
   }
 

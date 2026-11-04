@@ -188,7 +188,7 @@ class _SchermataPreventivoState extends State<SchermataPreventivo> {
       await f.writeAsBytes(byte, flush: true);
       return f.path;
     } catch (e) {
-      if (mounted) avviso(context, 'PDF non creato: $e');
+      if (mounted) avviso(context, fraseErrore('PDF non creato.', e));
       return null;
     } finally {
       if (mounted) setState(() => _generando = false);
@@ -219,7 +219,7 @@ class _SchermataPreventivoState extends State<SchermataPreventivo> {
             files: [XFile(percorso, mimeType: 'application/pdf')], subject: 'Preventivo ${p.numero}', text: testo));
       }
     } catch (e) {
-      if (mounted) avviso(context, 'Condivisione non riuscita: $e');
+      if (mounted) avviso(context, fraseErrore('Condivisione non riuscita.', e));
     }
   }
 
@@ -233,7 +233,7 @@ class _SchermataPreventivoState extends State<SchermataPreventivo> {
         await OpenFilex.open(percorso, type: 'application/pdf');
       }
     } catch (e) {
-      if (mounted) avviso(context, 'Non riesco ad aprire il PDF: $e');
+      if (mounted) avviso(context, fraseErrore('Non riesco ad aprire il PDF.', e));
     }
   }
 

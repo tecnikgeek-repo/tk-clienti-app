@@ -117,7 +117,10 @@ class AppClienti extends StatelessWidget {
           child: FutureBuilder<void>(
             future: avvio,
             builder: (_, s) {
-              if (s.hasError) return _ErroreAvvio('${s.error}');
+              if (s.hasError) {
+                debugPrint('Avvio non riuscito: ${s.error}');
+                return const _ErroreAvvio();
+              }
               if (s.connectionState != ConnectionState.done) return const SchermataAvvio();
               return _CicloVita(child: SchermataHome(crash: crashPrecedente));
             },
@@ -159,9 +162,7 @@ class _CicloVitaState extends State<_CicloVita> {
 }
 
 class _ErroreAvvio extends StatelessWidget {
-  const _ErroreAvvio(this.errore);
-
-  final String errore;
+  const _ErroreAvvio();
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -175,9 +176,7 @@ class _ErroreAvvio extends StatelessWidget {
               const Text('Non riesco ad aprire i dati',
                   style: TextStyle(color: bianco, fontSize: 20, fontWeight: FontWeight.w800)),
               const SizedBox(height: 8),
-              Text(errore, textAlign: TextAlign.center, style: const TextStyle(color: grigio300)),
-              const SizedBox(height: 14),
-              const Text('I dati non sono stati toccati. Scrivi a TecnikGeek con questo messaggio.',
+              const Text('I dati non sono stati toccati. Chiudi e riapri l\'app: se non si apre ancora, scrivi a TecnikGeek.',
                   textAlign: TextAlign.center, style: TextStyle(color: grigio400, fontSize: 13)),
             ]),
           ),

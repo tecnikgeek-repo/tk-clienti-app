@@ -48,15 +48,14 @@ class _SchermataHomeState extends State<SchermataHome> {
         context: context,
         builder: (d) => AlertDialog(
           title: const Text("L'app si era chiusa per un errore"),
-          content: SingleChildScrollView(
-              child: Text(testo, style: const TextStyle(fontFamily: 'monospace', fontSize: 11))),
+          content: const Text('I tuoi dati sono al sicuro. Se succede ancora, premi «Copia i dettagli» e mandali a TecnikGeek.'),
           actions: [
             TextButton(
               onPressed: () {
                 Clipboard.setData(ClipboardData(text: testo));
                 avviso(context, 'Copiato: incollalo in un messaggio a TecnikGeek');
               },
-              child: const Text('Copia'),
+              child: const Text('Copia i dettagli'),
             ),
             FilledButton(onPressed: () => Navigator.pop(d), child: const Text('Continua')),
           ],
