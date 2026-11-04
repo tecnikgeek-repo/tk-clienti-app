@@ -54,7 +54,7 @@ class _SchermataImpostazioniState extends State<SchermataImpostazioni> {
     try {
       await _esito(await lavoro(), finestra: finestra);
     } catch (e) {
-      await _esito(Esito(false, 'Errore: $e'), finestra: true);
+      await _esito(Esito(false, fraseErrore('Operazione non riuscita.', e)), finestra: true);
     }
   }
 

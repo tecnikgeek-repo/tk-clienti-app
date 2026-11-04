@@ -85,7 +85,7 @@ class _SchermataArticoliState extends State<SchermataArticoli> {
       try {
         dati = await leggiFile(f.uri);
       } catch (e) {
-        if (mounted) avviso(context, 'Non riesco a leggere il file: $e');
+        if (mounted) avviso(context, fraseErrore('Non riesco a leggere il file.', e));
       }
     } else {
       final f = await FilePicker.pickFile();
